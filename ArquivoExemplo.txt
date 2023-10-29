@@ -1,0 +1,6 @@
+Ao final do processamento o programa zebra devera gerar um arquivo 
+O programa Abel deve rodar com arquivos editados no LINUX
+O objetivo deste trabalho e criar uma referencia cruzada das palavras existentes em um arquivo texto. 
+O programa deve contar quantas vezes cada palavra, com mais de 3 letras ocorre no texto, 
+desconsiderando o fato das letras serem maiusculas ou minusculas. 
+O programa deve ignorar simbolos de pontuacao.
