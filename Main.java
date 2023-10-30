@@ -46,10 +46,10 @@ public class Main {
             }
             palavra = removePunctuationAndToLower(palavra);
             
-            if(!stopWords.containsWord(palavra)){
+            if(!stopWords.containsWord(palavra) && !palavra.isEmpty()){
                 lista.orderedAdd(palavra, nPagina);
                 numTotalPalavras++;
-            }else {
+            }else if(!palavra.isEmpty()){
                 numStopWords++;
                 numTotalPalavras++;
             }
@@ -57,7 +57,7 @@ public class Main {
          } while (true);
 
     } while (true);
-    arquivo.close();    
+    arquivo.close();
 
     Scanner sc = new Scanner(System.in);
 

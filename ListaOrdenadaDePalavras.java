@@ -192,7 +192,26 @@ public class ListaOrdenadaDePalavras {
             return str;
         }
         return null;
-    }    
+    }  
+    
+    public String palavraMaisFrequente(){
+        int valorMaior = 0;
+
+        Palavra referenciaMaior = null;
+
+        Palavra aux = header.next;
+
+        for(int i=0;i<size();i++){
+            if(valorMaior < aux.listaOcorrencias.size()){
+                valorMaior = aux.listaOcorrencias.size();
+                referenciaMaior = aux;
+            }
+            aux = aux.next;
+        }
+
+        return referenciaMaior.s;
+        
+    }
     
 
     
