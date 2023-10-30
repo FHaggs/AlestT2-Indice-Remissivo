@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Classe que inicializa a execução da aplicacao.
  * @author Isabel H. Manssour
@@ -55,14 +57,44 @@ public class Main {
          } while (true);
 
     } while (true);
+    arquivo.close();    
 
-    arquivo.close();        
-    System.out.println(lista);
-    System.out.println("Número de Stopwords: " + numStopWords);
-    System.out.println("Número Total de Palavras: " + numTotalPalavras);
+    Scanner sc = new Scanner(System.in);
 
-    double percentualStopWords = porcentagemStopWords(numStopWords, numTotalPalavras);
-    System.out.printf("Percentual de Stopwords: %.2f%%\n", percentualStopWords);
+    while(true){
+        System.out.println("Escolha uma opção:");
+        System.out.println("1. Exibir todo o índice remissivo (em ordem alfabética)");
+        System.out.println("2. Exibir o percentual de stopwords do texto");
+        System.out.println("3. Encontrar a palavra mais frequente");
+        System.out.println("4. Pesquisar palavras");
+        System.out.println("5. Encerrar o programa");
+
+        int op = sc.nextInt();
+
+        switch(op){
+            case 1: 
+                System.out.println(lista); 
+                break;
+            case 2:
+                double percentualStopWords = porcentagemStopWords(numStopWords, numTotalPalavras);
+                System.out.printf("Percentual de Stopwords: %.2f%%\n", percentualStopWords);
+                break;
+            case 3:
+                
+            case 4:
+
+            case 5:
+                System.out.println("Programa encerrado.");
+                sc.close();
+                System.exit(0);
+                break;
+            default: 
+                System.out.println("Opção inválida"); 
+                break; 
+        }
+
+    }
+    
     }
     public static String removePunctuationAndToLower(String input) {
         // Retira os caracteres não alfanuméricos
