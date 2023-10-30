@@ -95,6 +95,8 @@ public class Main {
                 }
                 break;
             case 5:
+                
+            case 6:
                 System.out.println("Programa encerrado.");
                 sc.close();
                 System.exit(0);
