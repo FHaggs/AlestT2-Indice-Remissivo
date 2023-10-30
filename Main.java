@@ -7,7 +7,7 @@ public class Main {
         
     int nLinha = 0;
     int nPagina = 0;
-
+    int numTotalPalavras = 0;
     int numStopWords = 0;
 
     
@@ -46,16 +46,23 @@ public class Main {
             
             if(!stopWords.containsWord(palavra)){
                 lista.orderedAdd(palavra, nPagina);
+                numTotalPalavras++;
             }else {
                 numStopWords++;
+                numTotalPalavras++;
             }
 
          } while (true);
 
     } while (true);
-    
+
     arquivo.close();        
     System.out.println(lista);
+    System.out.println("Número de Stopwords: " + numStopWords);
+    System.out.println("Número Total de Palavras: " + numTotalPalavras);
+
+    double percentualStopWords = porcentagemStopWords(numStopWords, numTotalPalavras);
+    System.out.printf("Percentual de Stopwords: %.2f%%\n", percentualStopWords);
     }
     public static String removePunctuationAndToLower(String input) {
         // Retira os caracteres não alfanuméricos
@@ -66,7 +73,7 @@ public class Main {
 
         return result;
     }
-    public static double porcentagemStopWords(int numStopWords, double numListaSize){
-        return (numStopWords / numListaSize * 100);
+    public static double porcentagemStopWords(int numStopWords, double numTotalPalavras){
+        return (numStopWords / numTotalPalavras * 100);
     }
 }
