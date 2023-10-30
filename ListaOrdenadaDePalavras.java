@@ -213,7 +213,16 @@ public class ListaOrdenadaDePalavras {
         
     }
     
-
+    public ListaDeOcorrencias pesquisarPalavra(String palavra) {
+        Palavra aux = header.next;
+        while (aux != trailer) {
+            if (aux.s.equals(palavra)) {
+                return aux.listaOcorrencias;
+            }
+            aux = aux.next;
+        }
+        return null;
+    }
     
     @Override
     public String toString() {

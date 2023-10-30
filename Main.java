@@ -80,9 +80,20 @@ public class Main {
                 System.out.printf("Percentual de Stopwords: %.2f%%\n", percentualStopWords);
                 break;
             case 3:
-                
+                System.out.println("Palavra mais frequente:");
+                System.out.println(lista.palavraMaisFrequente());
+                break;
             case 4:
-
+                System.out.println("Palavra que deseja pesquisar:");
+                String palavraPesquisada = sc.next();
+                ListaDeOcorrencias ocorrencias = lista.pesquisarPalavra(palavraPesquisada);
+                if(ocorrencias != null){
+                    System.out.println("Palavra " + palavraPesquisada + " encontrada nas páginas: " + ocorrencias.toString());
+                    
+                }else{
+                    System.out.println("Palavra " + palavraPesquisada + " não encontrada no texto");
+                }
+                break;
             case 5:
                 System.out.println("Programa encerrado.");
                 sc.close();
