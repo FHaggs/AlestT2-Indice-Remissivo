@@ -95,7 +95,9 @@ public class Main {
                 }
                 break;
             case 5:
-                
+                lista.paginaComplexa();
+                break;
+
             case 6:
                 System.out.println("Programa encerrado.");
                 sc.close();

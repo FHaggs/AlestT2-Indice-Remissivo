@@ -1,8 +1,11 @@
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * Esta classe guarda os numeros das paginas em que uma palavra ocorre.
  * @author Isabel H. Manssour
  */
-public class ListaDeOcorrencias {
+public class ListaDeOcorrencias implements Iterable<Integer>{
         
     // Classe interna Node
     private class Node {
@@ -11,6 +14,29 @@ public class ListaDeOcorrencias {
         public Node(int n) {
             numeroDaPagina = n;
             next = null;
+        }
+    }
+    // Iterator
+    private class CustomIterator implements Iterator<Integer> {
+        private Node current;
+
+        public CustomIterator() {
+            current = head;
+        }
+
+        // Checks if the next element exists
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        // moves the cursor/iterator to the next element
+        public Integer next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            int value = current.numeroDaPagina;
+            current = current.next;
+            return value;
         }
     }
     
@@ -122,5 +148,11 @@ public class ListaDeOcorrencias {
         }
         sb.append("]");
         return sb.toString();
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new CustomIterator();
+
     }
 }
