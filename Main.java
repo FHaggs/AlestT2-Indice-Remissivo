@@ -67,7 +67,8 @@ public class Main {
         System.out.println("2. Exibir o percentual de stopwords do texto");
         System.out.println("3. Encontrar a palavra mais frequente");
         System.out.println("4. Pesquisar palavras");
-        System.out.println("5. Encerrar o programa");
+        System.out.println("5. Encontrar pagina complexa");
+        System.out.println("6. Encerrar o programa");
 
         int op = sc.nextInt();
 
@@ -88,16 +89,16 @@ public class Main {
                 String palavraPesquisada = sc.next();
                 ListaDeOcorrencias ocorrencias = lista.pesquisarPalavra(palavraPesquisada);
                 if(ocorrencias != null){
-                    System.out.println("Palavra " + palavraPesquisada + " encontrada nas páginas: " + ocorrencias.toString());
-                    
+                    System.out.println("Palavra " + palavraPesquisada + " encontrada nas páginas: " + ocorrencias.toString());    
                 }else{
                     System.out.println("Palavra " + palavraPesquisada + " não encontrada no texto");
                 }
                 break;
             case 5:
-                lista.paginaComplexa();
+                int[] arr = lista.paginaComplexa();
+                System.out.println("Pagina mais complexa:");
+                System.out.println("Pagina: " + arr[0] + " com " + arr[1] + " palavras");
                 break;
-
             case 6:
                 System.out.println("Programa encerrado.");
                 sc.close();
@@ -107,9 +108,7 @@ public class Main {
                 System.out.println("Opção inválida"); 
                 break; 
         }
-
     }
-    
     }
     public static String removePunctuationAndToLower(String input) {
         // Retira os caracteres não alfanuméricos
